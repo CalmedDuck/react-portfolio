@@ -1,0 +1,29 @@
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Black background */
+  }
+  
+  .nav-link {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem;
+    color: #fff; /* White text */
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    border-bottom: 3px solid transparent; /* Prevents movement of text */
+  }
+  
+  .nav-link:hover, .nav-link-active {
+    background-color: #e65100; /* Darker orange background on hover/active */
+    color: #000; /* Black text on hover/active */
+    text-decoration: none; /* Removes underline */
+  }
+  
+  /* Adjust the link that is currently active */
+  .nav-link.active {
+    background-color: #e65100; /* Darker orange background for active nav item */
+    color: #000; /* Black text for active nav item */
+    border-bottom: 3px solid transparent; /* Maintains the text position */
+  }
+  

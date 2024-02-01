@@ -1,0 +1,56 @@
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Will create two columns */
+  gap: 20px;
+  padding: 2rem;
+  background-color: #000; /* Ensures the background color is black */
+}
+
+  .project-card {
+    background-color: #1a1a1a; /* Dark card background */
+    color: #fff; /* White text */
+    border-radius: 10px; /* Rounded corners for the cards */
+    overflow: hidden; /* Ensures the content fits within the card borders */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+  }
+  
+  .project-image img {
+    width: 100%; /* Ensure the image covers the card width */
+    height: 150px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure the image covers the card area */
+  }
+  
+  .project-info {
+    padding: 1rem; /* Padding inside the card for text */
+  }
+  
+  .project-links {
+    text-align: center; /* Center the links */
+    padding: 1rem 0; /* Padding above and below the links */
+  }
+  
+  .project-links a {
+    color: #ff7f50; /* Accent color for the links */
+    text-decoration: none; /* No underline */
+    margin: 0 10px; /* Spacing between links */
+  }
+  
+  .project-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+
+  .project-description {
+    margin-bottom: 1rem; /* Add some space below the description */
+    color: #ccc; /* Optional: Lighter text color for the description */
+  }
+  
+  @media (min-width: 600px) { /* Adjust as needed for your design */
+    .portfolio {
+      grid-template-columns: repeat(2, 1fr); /* Two columns for wider screens */
+    }
+  }

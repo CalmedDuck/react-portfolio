@@ -1,0 +1,51 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Set the background color for the entire page */
+}
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates a responsive grid */
+  gap: 20px;
+  padding: 2rem;
+  background-color: #000; /* Ensure the background color is black */
+}
+
+  
+  .project-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+  }
+  
+  .project-image img {
+    width: 100%; /* Full width of the card */
+    height: auto; /* Height adjusted automatically to maintain aspect ratio */
+    object-fit: contain; /* Ensures the full image is visible */
+    background-color: #000; /* Background color if there's empty space around the image */
+  }
+
+  .project-info {
+    padding: 1rem; /* Padding inside the card for text */
+  }
+  
+  .project-links {
+    text-align: center; /* Center the links */
+    padding: 1rem 0; /* Padding above and below the links */
+  }
+  
+  .project-links a {
+    color: #ff7f50; /* Accent color for the links */
+    text-decoration: none; /* No underline */
+    margin: 0 10px; /* Spacing between links */
+  }
+  
+  .project-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  @media (min-width: 768px) { /* Adjust the pixel value as needed */
+    .portfolio {
+      grid-template-columns: repeat(2, 1fr); /* Two columns for larger screens */
+    }
+  }
+  
