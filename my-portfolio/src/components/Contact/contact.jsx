@@ -1,20 +1,31 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import './contact.css'; // Ensure this path is correct
+import { useNavigate } from 'react-router-dom';
+import './contact.css';
 
 const Contact = () => {
-  const navigate = useNavigate(); // Create an instance of useNavigate
+  const navigate = useNavigate();
 
-  // Function to handle form submission
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
 
     // Construct form data
-    const data = new FormData(form);
-    fetch(form.action, {
+    const formData = new FormData(form);
+    const encodedData = encode({
+      'form-name': form.getAttribute('name'),
+      ...Object.fromEntries(formData)
+    });
+
+    fetch('/', { // POST to the root path (Netlify form handling)
       method: 'POST',
-      body: data,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodedData,
     })
     .then((response) => {
       if (response.ok) {
@@ -23,12 +34,11 @@ const Contact = () => {
         navigate('/success'); // Redirect to the success page using React Router
       } else {
         // Handle server errors
-        console.error('Server responded with non-OK status');
+        console.error('Server responded with non-OK status:', response.status);
       }
     })
     .catch((error) => {
       console.error('Form submission error:', error);
-      // Handle form submission error (e.g., display an error message)
     });
   };
 
@@ -41,11 +51,9 @@ const Contact = () => {
         method="POST"
         data-netlify="true"
         onSubmit={handleSubmit}
-        // Remove the action attribute as we're handling submission in JavaScript
       >
         {/* Netlify hidden input for form name */}
         <input type="hidden" name="form-name" value="contact" />
-
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input type="text" id="name" name="name" required />
