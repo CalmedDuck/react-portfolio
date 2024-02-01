@@ -1,0 +1,9 @@
+/* src/Success.css */
+
+.success-container {
+    text-align: center;
+    padding: 2rem;
+    color: #fff; /* Adjust colors as per your theme */
+    background-color: #000; /* Adjust colors as per your theme */
+  }
+  

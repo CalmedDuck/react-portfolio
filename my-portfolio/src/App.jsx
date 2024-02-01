@@ -5,6 +5,7 @@ import AboutMe from './pages/AboutMe'; // Import the AboutMe component
 import Portfolio from './pages/Portfolio'; // Import the Portfolio component
 import Contact from './components/Contact/contact';
 import Resume from './components/Resume/Resume';
+import Success from './components/Success/Success';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/success" element={<Success />} />
    
          
         </Routes>
